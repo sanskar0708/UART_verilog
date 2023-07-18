@@ -21,20 +21,10 @@ module uart_main
         output tx_full,
         output tx
         
-        // baud rate generator
-       // input [10: 0] TIMER_FINAL_VALUE
+        
     );
     
-    // Timer as baud rate generator
-//    wire tick;
-//    timer_input #(.BITS(11))baud_rate_generator (
-//        .clk(clk),
-//        .reset_n(reset_n),
-//        .enable(1'b1),
-//        .FINAL_VALUE(TIMER_FINAL_VALUE),
-//        .done(tick)
-//    );
-    
+   
     // Receiver
     wire rx_done_tick;
     wire [DBIT - 1: 0] rx_dout;
@@ -42,7 +32,6 @@ module uart_main
         .clk(clk),
         .reset_n(reset_n),
         .rx(rx),
-        //.s_tick(tick),
         .rx_done_tick(rx_done_tick),
         .rx_dout(rx_dout)
     );
@@ -65,7 +54,6 @@ module uart_main
         .clk(clk),
         .reset_n(reset_n),
         .tx_start(~tx_fifo_empty),
-        //.s_tick(tick),
         .tx_din(tx_din),
         .tx_done_tick(tx_done_tick),
         .tx(tx)
