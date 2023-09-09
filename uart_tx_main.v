@@ -36,7 +36,7 @@ if(~reset_n)
 	end
 else
 	begin
-		if(baud<rate)
+		if(baud<rate-1)
 		begin
 		baud<=baud+1;
 		s_tick<=0;
